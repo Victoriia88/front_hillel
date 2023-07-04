@@ -1,61 +1,38 @@
-//1
-
-let firstNumber = 20;
-while (firstNumber <= 30){
-  console.log(firstNumber);
-  firstNumber += 0.5;
-
+function promptNumber(messageNumber){
+let result;
+do {
+     result = prompt(messageNumber);
+     if (result === null) {
+       alert('Жаль. Сподіваюсь ще побачитись');
+       return null;
+}
+result = parseFloat(result); 
+     } while (isNaN(result)); 
+       return result;
 }
 
-//2
-let oneDollar = 27;
-let i = 10;
-while (i <= 100) {
-  let currensyUah =  i * oneDollar;
-  console.log(`${i} dollars = ${currensyUah} UAH`);
-  i+= 10;
-}
+function solveQuadraticEquation(){
+     const a = promptNumber('Будемо знаходити рішення квадратного рівняння виду:\nax^2 + bx + c = 0\nВведіть a');
+     if (a === null) return;
+  
+     const b = promptNumber(`a = ${a}\nВведіть b`);
+     if (b === null) return;
+  
+     const c = promptNumber(`a = ${a}, b = ${b}\nВведіть c`);
+     if (c === null) return;
+     const discriminant = b ** 2 - 4 * a * c;
 
-//3-4-5
-let taskThird = parseInt(prompt('Please enter any number?'));
-let n = 1;
-while (n <= 100 && n*n <= taskThird){
-  console.log(n);
-  n++
-}
-let m = 2;
-let isSimple = true;
-
-while (m < taskThird) {
-  if (taskThird % m === 0) {
-  isSimple = false;
-  }
-  m++;
-}
-
-if (isSimple) {
-  console.log(`${m} is a simple number`);
-} else {
-  console.log(`${m} is not a simple number`);
-}
-
-
-let taskFive = false;
-
-while (taskThird >= 3) {
-  if (taskThird % 3 === 0) {
-    taskThird /= 3;
-  } else {
-    break;
+     if (a === 0) {
+        alert('a = 0. Рівняння не має рішень');
+     } else if (discriminant < 0) {
+        alert('D < 0. Рівняння не має рішень');
+     } else if (discriminant === 0) {
+     const x = -b / (2 * a);
+        alert(`D = 0. Єдиний корінь рівняння: x = ${x}`);
+     } else {
+     const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+     const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        alert(`D > 0. Корені рівняння: x1 = ${x1}, x2 = ${x2}`);
   }
 }
-
-if (taskThird === 1) {
-  taskFive = true;
-}
-
-if (taskFive) {
-  console.log(`${taskThird} can be obtained `);
-} else {
-  console.log(`${taskThird} cannot be obtained`);
-}
+solveQuadraticEquation();
