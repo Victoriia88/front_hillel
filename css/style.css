@@ -1,0 +1,30 @@
+body {
+  background-color: #bfbfbf;
+  color: #10403b;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 40px;
+}
+.v-item {
+  text-align: center;
+}
+.block {
+  background-color: #8aa6a3;
+  border: solid 2px #10403b;
+  border-radius: 5px;
+  width: 80px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: all 0.2s;
+}
+
+.block:hover {
+  border-radius: 7px;
+  background-color: #127369;
+  color: #bfbfbf;
+}
